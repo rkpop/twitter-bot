@@ -1,0 +1,16 @@
+# Reddit stuff
+OAUTH_SECRET = ''
+OAUTH_CLIENT = ''
+USER_AGENT = 'reddit_stream'
+REDDIT_UNAME  = ''
+REDDIT_PASS = ''
+
+# DB
+DB_URL = "data.db"
+TABLE_NAME = "tweet"
+
+# Twitter
+TW_TOKEN = ""
+TW_TOKEN_SECRET = ""
+TW_API_KEY = ""
+TW_API_SECRET = ""
