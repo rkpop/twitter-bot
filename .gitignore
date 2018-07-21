@@ -121,3 +121,4 @@ venv.bak/
 # End of https://www.gitignore.io/api/python,visualstudiocode
 
 CONFIG.py
+data.db
