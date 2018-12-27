@@ -35,13 +35,17 @@ def main():
             for submission in subreddit.hot()
             if (submission.score >= 100)
         )
-        new_submission = db_checking(submissions)
-        for submission in new_submission:
-            if submission.link_flair_text in WHITELIST:
+        for submission in submissions:
+            post_flair = (
+                submission.link_flair_text.strip("[").strip("]")
+                if submission.link_flair_text is not None
+                else "Misc"
+            )
+            if post_flair in WHITELIST:
                 content = {
                     "id": submission.id,
                     "title": submission.title,
-                    "type": submission.link_flair_text,
+                    "type": post_flair,
                 }
                 tweet(twitter, content)
                 write_to_db(submission.id)
