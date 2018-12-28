@@ -3,6 +3,7 @@ from kpopbot import (
     TwitterWrapper,
     Database,
     post_factory,
+    sanitize_flair,
     WHITELIST,
 )
 from CONFIG import REDDIT_CONFIG, TWITTER_CONFIG, DB_URL, TABLE_NAME
@@ -19,7 +20,7 @@ def main():
             if database.check_table(post.id)
             and (
                 post.link_flair_text is not None
-                and post.link_flair_text in WHITELIST
+                and sanitize_flair(post.link_flair_text) in WHITELIST
             )
         )
         for post in posts:
