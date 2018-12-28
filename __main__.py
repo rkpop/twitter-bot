@@ -25,7 +25,7 @@ def main():
         )
         for post in posts:
             twitter.tweet(post)
-            database.write_table(post.id)
+            database.write_table(post.post_id)
 
 
 if __name__ == "__main__":
