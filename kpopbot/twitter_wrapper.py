@@ -1,4 +1,7 @@
-from twitter import Twitter, OAuth
+from kpopbot import HEADER
+from twitter import Twitter, OAuth, TwitterHTTPError
+from requests import get
+from io import BytesIO
 
 
 class TwitterWrapper(object):
@@ -11,7 +14,7 @@ class TwitterWrapper(object):
                 details["API_secret"],
             )
         )
-        self.uploading_instance = Twitter(
+        self.uploader_instance = Twitter(
             domain="upload.twitter.com",
             auth=OAuth(
                 details["token_key"],
@@ -23,13 +26,27 @@ class TwitterWrapper(object):
 
     def tweet(self, post):
         if post._with_media:
+            self._with_media(post)
+        else:
             self._text_only(post)
 
     def _text_only(self, post):
-        pass
+        try:
+            self.instance.statuses.update(status=post.nice)
+        except TwitterHTTPError:
+            pass
 
     def _with_media(self, post):
-        pass
+        imageid = self._upload_media(post.image_url)
+        try:
+            self.instance.statuses.update(
+                status=post.nice, media_ids=str(imageid)
+            )
+        except TwitterHTTPError:
+            pass
 
     def _upload_media(self, image_url):
-        pass
+        filedata = BytesIO(get(image_url, headers=HEADER).content).read()
+        return self.uploader_instance.media.upload(media=filedata)[
+            "media_id_string"
+        ]

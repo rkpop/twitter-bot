@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from requests import get
+from kpopbot import HEADER
 
 
 def media_provider(url):
@@ -14,11 +15,6 @@ def media_provider(url):
 
 
 def first_image(url):
-    r = get(
-        url,
-        headers={
-            "user-agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko/20100101 Firefox/64.0"
-        },
-    )
+    r = get(url, headers=HEADER)
     soup = BeautifulSoup(r.text, "lxml")
     return soup.find("link", href=True, attrs={"rel": "image_src"})["href"]
