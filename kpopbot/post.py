@@ -1,11 +1,9 @@
-from CONSTANTS import TEMPLATES
-from .media import media_provider
-from .utils import sanitize_flair as sf
+from kpopbot import media_provider, sanitize_flair, TEMPLATES
 
 
 def post_factory(praw_item):
     class_name = (
-        sf(praw_item.link_flair_text)
+        sanitize_flair(praw_item.link_flair_text)
         if praw_item.link_flair_text is not None
         else "Misc"
     )

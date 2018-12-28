@@ -1,5 +1,5 @@
 from twitter import TwitterHTTPError
-from CONSTANTS import TEMPLATES
+from kpopbot import TEMPLATES
 
 
 def tweet(instance, content):

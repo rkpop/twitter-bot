@@ -1,12 +1,5 @@
-from twitterbot import post_factory
-from twitterbot.post import (
-    Post,
-    Media,
-    News,
-    Teaser,
-    BehindTheScenes,
-    DanceCover,
-)
+from kpopbot import post_factory
+from kpopbot.post import Post, Media, News, Teaser, BehindTheScenes, DanceCover
 import pytest
 
 

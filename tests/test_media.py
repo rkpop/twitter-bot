@@ -1,4 +1,4 @@
-from twitterbot.media import first_image, media_provider
+from kpopbot.media import first_image, media_provider
 import pytest
 
 

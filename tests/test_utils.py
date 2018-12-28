@@ -1,11 +1,11 @@
-from twitterbot import sanitize_flair
+from kpopbot import sanitize_flair
 import pytest
 
 
 @pytest.mark.parametrize(
     "input,expected",
     [
-        ("[News]", "News"),
+        ("[Rumor]", "Rumor"),
         ("[Dance Cover]", "DanceCover"),
         ("[Behind-The-Scenes]", "BehindTheScenes"),
         ("[News] Misleading", "News"),
