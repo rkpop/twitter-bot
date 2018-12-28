@@ -1,2 +1,10 @@
+from re import search
+
+
 def sanitize_flair(flair_text):
-    return flair_text.strip("[").strip("]").replace(" ", "").replace("-", "")
+    return (
+        search(r"\[(.*?)\]", flair_text)
+        .group(1)
+        .replace("-", "")
+        .replace(" ", "")
+    )

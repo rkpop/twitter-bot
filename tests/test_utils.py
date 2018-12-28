@@ -8,6 +8,7 @@ import pytest
         ("[News]", "News"),
         ("[Dance Cover]", "DanceCover"),
         ("[Behind-The-Scenes]", "BehindTheScenes"),
+        ("[News] Misleading", "News"),
     ],
 )
 def test_sanitize_flair(input, expected):
