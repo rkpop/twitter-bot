@@ -1,5 +1,6 @@
 from .utils import sanitize_flair
 from .CONSTANTS import *
+from .db import Database
 from .media import media_provider
 from .post import post_factory
 from .reddit import PRAWWrapper
