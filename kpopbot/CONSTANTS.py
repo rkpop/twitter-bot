@@ -1,5 +1,5 @@
 TEMPLATES = {
-    "News": "NEWS: {title} https://redd.it/{id}",
+    "News": "NEWS: {title} #kpopnews https://redd.it/{id}",
     "Rumor": "RUMOR: {title} https://redd.it/{id}",
     "Interview": "Check out the new Interview: {title} https://redd.it/{id}",
     "MV": "WATCH: New Music Video - {title} https://redd.it/{id}",
