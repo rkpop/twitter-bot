@@ -1,0 +1,22 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: praw
+    versions:
+    - 7.1.0
+    - 7.1.2
+    - 7.1.4
+  - dependency-name: pytest
+    versions:
+    - 6.2.2
+  - dependency-name: typed-ast
+    versions:
+    - 1.4.2
+  - dependency-name: lxml
+    versions:
+    - 4.6.2
