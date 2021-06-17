@@ -14,7 +14,7 @@ mccabe==0.6.1
 more-itertools==5.0.0
 oauthlib==2.1.0
 pluggy==0.8.0
-praw==6.0.0
+praw==7.3.0
 prawcore==1.0.0
 py==1.7.0
 pylint==2.2.2
